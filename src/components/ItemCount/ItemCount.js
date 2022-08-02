@@ -18,7 +18,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
             if (cantidad == 1){
                 alert("La cantidad minima es 1")
             }else{
-                setCantidad(cantidad -1)
+                setCantidad(cantidad = cantidad - 1)
                 
             }
             
@@ -51,14 +51,16 @@ function addOn(){
     return(
     <div  className="col-md-4 bg-secondary d-flex p2 m2 flex-column bordesRedondeados" >
         <button onClick={sumarCantidad} className="bordesRedondeados" > +</button >
-        <p> {cantidad} </p>
+        <h1> {cantidad } </h1>
         <button onClick={restarCantidad}   className="bordesRedondeados"> -</button >
-      <button onClick={addOn} disabled={!stockDisponible} className="btn btn-primary bordesRedondeados" > Agregar al carrito</button >
+      
+        <h2> En stock : {stock} </h2>
+        <button onClick={addOn} disabled={!stockDisponible} className="btn btn-primary bordesRedondeados" > Agregar al carrito</button >
     </div>
     
     
-    )
+    );
     
     
     }
-    export default ItemCount
+    export default ItemCount;
