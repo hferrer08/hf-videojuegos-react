@@ -2,28 +2,34 @@ import React from "react";
 import {useState} from 'react';
 
 const ItemCount = ({stock, initial, onAdd}) => {
-    let cantidad = 1;
-    const [cantidadStock,setCantidadStock] = useState(parseInt(initial));
+    console.log (stock)
+    let [cantidad,setCantidad] = useState(parseInt(initial));
 
     let stockDisponible = true
 
-    if(stockDisponible >=1){
+    if(stock>=1){
         stockDisponible = true
     }else{
         stockDisponible = false
     }
 
     function restarCantidad(){
-        setCantidadStock(
-            cantidad = cantidad -1
-        )
+       
+            if (cantidad == 1){
+                alert("La cantidad minima es 1")
+            }else{
+                setCantidad(cantidad -1)
+                
+            }
+            
+        
     }
 
     function sumarCantidad(){
         if(cantidad>= stock){
             alert("No se puede solicitar una cantidad mayor al stock "+stock)
         }else{
-            setCantidadStock(cantidadStock ++)
+            setCantidad(cantidad ++)
         }
     }
 
@@ -32,7 +38,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
 
 function addOn(){
-    if(stockDisponible == true){
+    if(stockDisponible == false){
         alert("No hay stock disponible")
     }else{
         console.log(cantidad)
@@ -44,9 +50,9 @@ function addOn(){
 
     return(
     <div  className="col-md-4 bg-secondary d-flex p2 m2 flex-column bordesRedondeados" >
-        <button onCLick={sumarCantidad} className="bordesRedondeados"  onClick={()=> console.log("Click")}> +</button >
-        <p> {Cantidad} </p>
-        <button onCLick={restarCantidad}   className="bordesRedondeados"> -</button >
+        <button onClick={sumarCantidad} className="bordesRedondeados" > +</button >
+        <p> {cantidad} </p>
+        <button onClick={restarCantidad}   className="bordesRedondeados"> -</button >
       <button onClick={addOn} disabled={!stockDisponible} className="btn btn-primary bordesRedondeados" > Agregar al carrito</button >
     </div>
     

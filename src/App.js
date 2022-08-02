@@ -14,8 +14,9 @@ function App() {
 
      </Router>
      <ItemList desc='Soy un producto!'>
-     <ItemCount stock='5' initial='1'> </ItemCount> 
+     
       </ItemList> 
+      <ItemCount stock='5' initial='1'> </ItemCount> 
     </div>
    
   );
