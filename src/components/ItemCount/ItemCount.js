@@ -29,7 +29,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         if(cantidad>= stock){
             alert("No se puede solicitar una cantidad mayor al stock "+stock)
         }else{
-            setCantidad(cantidad ++)
+            setCantidad(cantidad = cantidad + 1)
         }
     }
 
