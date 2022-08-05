@@ -1,8 +1,8 @@
 import React from "react";
-import {useState} from 'react';
+import { useState, useEffect } from "react";
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    console.log (stock)
+const ItemCount = (props) => {
+   
     let [cantidad,setCantidad] = useState(parseInt(initial));
 
     let stockDisponible = true

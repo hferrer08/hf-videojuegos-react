@@ -1,23 +1,18 @@
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Navbar from './components/navegacion/Navbar'
 import ItemList from './components/ItemList/ItemList';
 import ItemCount from './components/ItemCount/ItemCount';
 import { ItemListContainer } from './ItemListContainer/ItemListContainer';
-import traerDatos from './data/data';
+
 import { useState, useEffect } from 'react';
 
 function App() {
-const[data,setData] = useState([])
-const[loading,setLoading] = useState(true)
+const [valor, setValor] = useState("")
+const [cantCarrito, setCantCarrito] = useState(0)
 
-useEffect(()=>{
-  traerDatos
-  .then((resp)=>setData(resp))
-  .catch(err=>console.log(err))
-  .finally(()=>setLoading(false))
-},[])
 
 
   return (
@@ -27,25 +22,13 @@ useEffect(()=>{
   
 
      </Router>
+
      <ItemList desc='Soy un producto!'>
      
       </ItemList> 
-      <ItemCount stock='5' initial='1'> </ItemCount> 
+      <ItemListContainer setCantCarrito={setCantCarrito} cantCarrito={cantCarrito}/>
 
-
-      <div>
-        { 
-       
-         loading ? <h2>Cargando... </h2> : 
-         data.map(cerv=><li key={cerv.id}>{cerv.id} 
-         
-        {cerv.nombre}
-         <img className="img-thumbnail "src={cerv.image}></img></li>)
-        }
-
-      </div>
-    </div>
-   
+     </div>
   );
 }
 
