@@ -27,6 +27,21 @@
     ]
 
     
-    
+   const traerDatos = new Promise((resolve, reject) => {
+    let condition = true
+    if(condition){
+    setTimeout(() =>{
 
+    resolve(data)
+
+    },2500)
+    }else{
+            reject (console.log("No hay datos"))
+    }
+
+
+
+   }) 
+
+   export default traerDatos
     
