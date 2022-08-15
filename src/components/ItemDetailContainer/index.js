@@ -9,7 +9,7 @@ import {useParams} from 'react-router-dom'
 
 function ItemDetailContainer(){
 
-    const [data,setData]=useState([])
+    const [data,setData]=useState({})
     const[loading, setLoading]=useState(true)
     const {idProducto} = useParams ()
   
