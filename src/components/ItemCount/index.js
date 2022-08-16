@@ -1,7 +1,7 @@
 import React from "react";
 import { useState , useEffect} from "react";
 
-function ItemCount ({stock, initial, onAdd}){
+function ItemCount ({stock, initial, addON}){
 
 
     let [cantidad, setCantidad] = useState(parseInt(initial))
@@ -26,13 +26,13 @@ function ItemCount ({stock, initial, onAdd}){
         }
     }
 
-    function addON(){
-        if(!stockDisponible){
-            alert("No queda stock disponible")
-        }else{
-            console.log(cantidad)
-        }
-    }
+    //function addON(){
+       // if(!stockDisponible){
+      //      alert("No queda stock disponible")
+      //  }else{
+     //       console.log(cantidad)
+     //   }
+ //   }
   return(
     <div className="card col-md-3">
   <div className="card-body shadow">
@@ -42,7 +42,9 @@ function ItemCount ({stock, initial, onAdd}){
   <button onClick={restarCantidad} type="button" className="btn btn-outline-warning">-</button>
   </div>
   <div className="row"> 
-  <button onClick={addON} type="button" className="btn btn-success">Agregar al carrito</button>
+  <button onClick={(evt)=>{
+    addON(cantidad)
+  }} type="button" disabled={!stockDisponible} className="btn btn-success">Agregar al carrito</button>
   </div>
   </div>
 </div>

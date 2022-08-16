@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App ">
       <BrowserRouter>
-      <Navbar></Navbar> 
+      <Navbar />
       <Routes>
         <Route path='/' element={<ItemListContainer />} />
         <Route path='/categoria/:idCategoria' element={<ItemListContainer />} />
@@ -23,7 +23,7 @@ function App() {
         
       </Routes>   
       
-     <ItemCount stock='5' initial='1' ></ItemCount>
+     
       </BrowserRouter>
      
     
