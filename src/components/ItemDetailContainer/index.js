@@ -1,6 +1,7 @@
-import React from "react";
+import {React, useContext} from "react";
 import {useEffect, useState} from 'react';
 import {traerDatosPorIdProducto} from "../../data/data";
+import { CartContext } from "../../context/CartContext";
 import Spinner from "../Spinner";
 import ItemDetails from "../ItemDetails.js";
 import {useParams} from 'react-router-dom'
@@ -12,6 +13,8 @@ function ItemDetailContainer(){
     const [data,setData]=useState({})
     const[loading, setLoading]=useState(true)
     const {idProducto} = useParams ()
+
+    
   
     useEffect(()=>{
       
